@@ -16,7 +16,7 @@ export default function MenuLateral({ children }) {
     const [visible, setVisible] = useState(false);
     const tamanhoDesktop = windowWidth > 991;
     const navegar = useNavigate();
-    const opçõesProfessor = [
+    const opçõesArquiteto = [
         { label: "Página Inicial", command: () => navegar("/pagina-inicial") },
         {
             label: "Menu", items: [
@@ -24,20 +24,20 @@ export default function MenuLateral({ children }) {
                     label: "Cadastrar Usuário", command: () => navegar("/atualizar-usuario"),
                     disabled: usuárioLogado.status !== "ativo"
                 },
-                { label: "Cadastrar Professor", command: () => navegar("/cadastrar-professor") },
+                { label: "Cadastrar Arquiteto", command: () => navegar("/cadastrar-arquiteto") },
                 { label: "Sair do Sistema", command: () => sairSistema() }
             ]
         },
     ];
-    const opçõesAluno = [];
+    const opçõesConstrutor = [];
     function sairSistema() {
         setUsuárioLogado({});
         navegar("/");
     };
     function opçõesMenu() {
         switch (usuárioLogado.perfil) {
-            case "professor": return opçõesProfessor;
-            case "aluno": return opçõesAluno;
+            case "arquiteto": return opçõesArquiteto;
+            case "construtor": return opçõesConstrutor;
             default: return;
         }
     };

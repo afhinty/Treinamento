@@ -38,8 +38,8 @@ export default function CadastrarUsuário() {
         cor_tema: usuárioLogado?.cor_tema || TEMA_PADRÃO
     });
     const [erros, setErros] = useState({});
-    const opçõesPerfis = [{ label: "Professor", value: "professor" },
-    { label: "Aluno", value: "aluno" }];
+    const opçõesPerfis = [{ label: "Arquiteto", value: "arquiteto" },
+    { label: "Construtor", value: "construtor" }];
     function alterarEstado(event) {
         const chave = event.target.name;
         const valor = event.target.value;

@@ -1,0 +1,10 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+var express_1 = require("express");
+var verificar_token_1 = require("../middlewares/verificar-token");
+var verificar_perfil_arquiteto_1 = require("../middlewares/verificar-perfil-arquiteto");
+var servi_os_arquiteto_1 = require("../servi\u00E7os/servi\u00E7os-arquiteto");
+var RotasArquiteto = (0, express_1.Router)();
+exports.default = RotasArquiteto;
+RotasArquiteto.post("/", servi_os_arquiteto_1.default.cadastrarArquiteto);
+RotasArquiteto.get("/:cpf", verificar_token_1.default, verificar_perfil_arquiteto_1.default, servi_os_arquiteto_1.default.buscarArquiteto);
